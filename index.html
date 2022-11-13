@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Code Quiz</title>
 </head>
+
 <body>
-    
+    <header id="title">
+        <h1>Coding Quiz Challenge</h1>
+    </header>
+    <main>
+        <div>
+            <div id="timer" style="display:none;">Time's Up!</div>
+        </div>
+        <div id="quizChallenge">
+            <div>
+                <div id="start">
+                    <p>How well do you know JavaScript basics? Try to finish the following quiz within the time limit.
+                        Wrong answers take 10 seconds off the clock!</p>
+                    <button type="button" id="startBtn">Start Quiz</button>
+                </div>
+            </div>
+            <div id="questionDiv">
+                <p id="questionTitle"></p>
+                <div>
+                    <p><button id="btn1"></button></p>
+                    <p><button id="btn2"></button></p>
+                    <p><button id="but3"></button></p>
+                    <p><button id="btn4"></button></p>
+                    <hr id="break"> <br />
+                    <p id="answerCheck"></p>
+                </div>
+            </div>
+            <div id="scores" style="display: none">
+                <div>
+                    <h2>Your final score is <span id="finalScore"></span></h2>
+                    <form>
+                        <p>Enter your initials: <input id="initialInput">
+                            <button type="submit" id="submitInitialBtn">Submit</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div id="highScore" style="display: none">
+                <h2>High Scores</h2>
+                <div id="listHighScores"></div>
+                <p>
+                    <button type="submit" id="goBackBtn">Go Back</button>
+                    <button type="submit" id="clearHighScoreBtn">Clear High Scores</button>
+                </p>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>
