@@ -1,14 +1,28 @@
-// Copyright 2022 helenhoesley
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+const Questions = [
+    {
+        question: "Commonly used data types do NOT include:",
+        choices: ["a. strings", "b. booleans", "c. alerts", "d. numbers"],
+        answer: "c. alerts"
+    },
+    {
+        question: "Arrays in JavaScript can be used to store:",
+        choices: ["a. numbers and strings", "b. other arrays", "c. booleans", "d. all of the above"],
+        answer: "b. other arrays"
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choices: ["a. JavaScript", "b. terminal/bash", "c. for loop", "d. console.log"],
+        answer: "d. console.log"
+    },
+    {
+        question: "The condition in an if/else statement is enclosed with:",
+        choices: ["a. quotes", "b. curly brackets", "c. parentheses", "d. square brackets"],
+        answer: "b. curly brackets"
+    },
+    {
+        question: "String values must be enclosed within __________ when being assigned to variables?",
+        choices: ["a. commas", "b. curly brackets", "c. parentheses", "d. quotation marks"],
+        answer: "d. quotation marks"
+    }
 
+]
