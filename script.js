@@ -1,3 +1,5 @@
+//contribution: https://github.com/mmeii/code-quiz
+
 const questions = [
     {
         question: "Commonly used data types do NOT include:",
@@ -184,7 +186,7 @@ function checkAnswer(answer) {
     listHighScores.style.display = "unset";
     startLet.style.display = "none";
     timer.style.display = "none";
-    questionLet.style.display = "none";
+    questions.style.display = "none";
     timesUp.style.display = "none";
     summary.style.display = "none";
     highScoreSection.style.display = "block";
