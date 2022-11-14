@@ -114,3 +114,123 @@ function checkAnswer(answer) {
       gameOver();
     }
   }
+
+  function chooseA() {
+    checkAnswer(0);
+  }
+  function chooseB() {
+    checkAnswer(1);
+  }
+  function chooseC() {
+    checkAnswer(2);
+  }
+  function chooseD() {
+    checkAnswer(3);
+  }
+  
+  // game ending
+  function gameOver() {
+    summary.style.display = "block";
+    questionLet.style.display = "none";
+    startLet.style.display = "none";
+    timer.style.display = "none";
+    timesUp.style.display = "block";
+  
+    finalScore.textContent = correct;
+  }
+  
+  // high score in local storage
+  function storeHighScores(event) {
+    event.preventDefault();
+  
+    if (initialInput.value === "") {
+      alert("Initials Please!");
+      return;
+    }
+  
+    startLet.style.display = "none";
+    timer.style.display = "none";
+    timesUp.style.display = "none";
+    summary.style.display = "none";
+    highScoreSection.style.display = "block";
+  
+    // store scores
+    let savedHighScores = localStorage.getItem("high scores");
+    let scoresArray;
+  
+    if (savedHighScores === null) {
+      scoresArray = [];
+    } else {
+      scoresArray = JSON.parse(savedHighScores);
+    }
+  
+    let userScore = {
+      initials: initialInput.value,
+      score: finalScore.textContent,
+    };
+  
+    scoresArray.push(userScore);
+  
+    let scoresArrayString = JSON.stringify(scoresArray);
+    localStorage.setItem("high scores", scoresArrayString);
+  
+    showHighScores();
+  }
+  
+  // show high scores
+  
+  function showHighScores() {
+    i = 0;
+    listHighScores.style.display = "unset";
+    startLet.style.display = "none";
+    timer.style.display = "none";
+    questionLet.style.display = "none";
+    timesUp.style.display = "none";
+    summary.style.display = "none";
+    highScoreSection.style.display = "block";
+  
+    let savedHighScores = localStorage.getItem("high scores");
+  
+    // check local storage
+    if (savedHighScores === null) {
+      return;
+    }
+  
+    let storedHighScores = JSON.parse(savedHighScores);
+  
+    for (; i < storedHighScores.length; i++) {
+      let eachNewHighScore = document.createElement("p");
+      eachNewHighScore.innerHTML =
+        storedHighScores[i].initials + ": " + storedHighScores[i].score;
+      listHighScores.appendChild(eachNewHighScore);
+    }
+  }
+  
+  startBtn.addEventListener("click", newQuiz);
+  choiceA.addEventListener("click", chooseA);
+  choiceB.addEventListener("click", chooseB);
+  choiceC.addEventListener("click", chooseC);
+  choiceD.addEventListener("click", chooseD);
+  
+  initialsBtn.addEventListener("click", function (event) {
+    storeHighScores(event);
+  });
+  
+  highScore.addEventListener("click", function (event) {
+    showHighScores(event);
+  });
+  
+  goBackBtn.addEventListener("click", function () {
+    startLet.style.display = "block";
+    highScoreSection.style.display = "none";
+    window.location.reload();
+  });
+  
+  clearHighScoreBtn.addEventListener("click", function () {
+    window.localStorage.removeItem("high scores");
+    listHighScores.innerHTML = "High Scores Cleared!";
+    listHighScores.setAttribute(
+      "style",
+      "font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"
+    );
+  });
